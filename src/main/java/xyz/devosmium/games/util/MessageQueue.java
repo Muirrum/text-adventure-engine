@@ -9,7 +9,7 @@ public class MessageQueue {
     private static Logger logger = LoggerFactory.getLogger(MessageQueue.class);
 
     public static void add(String message) {
-        logger.debug("add(" + message + ")");
+        //logger.debug("add(" + message + ")");
         System.out.println(message);
     }
 
@@ -17,8 +17,7 @@ public class MessageQueue {
         String message = null;
 
         Scanner input = new Scanner(System.in);
-        message = input.nextLine();
-        input.close();
+        message = input.next();
         return message;
     }
 }
