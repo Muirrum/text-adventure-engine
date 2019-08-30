@@ -26,4 +26,9 @@ public class Game {
       System.exit(-1);
     }
   }
+
+  protected void gamePrompt(Player player) {
+    boolean contPrompt = true;
+
+  }
 }
