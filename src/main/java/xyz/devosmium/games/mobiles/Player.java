@@ -5,7 +5,7 @@ import java.util.Map;
 public class Player extends Mobile {
     private Player(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
         super(maxHealth, health, name, level, stats, gold);
-        // TODO Auto-generated constructor stub
+        
     }
 
 	private static Player player;
