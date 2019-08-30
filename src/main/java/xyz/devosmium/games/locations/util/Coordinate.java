@@ -21,6 +21,11 @@ public class Coordinate {
         this.z = z;
     }
 
+    public Coordinate getBorderingCoordinate(Direction dir) {
+        return new Coordinate(x + dir.getDx(), y + dir.getDy(), z + dir.getDz());
+    }
+
     @Override
     public String toString() { return x + "," + y + "," + z; }
+
 }
