@@ -1,10 +1,11 @@
 package xyz.devosmium.games.mobiles;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class StatFactory {
 
-    private Map<String, Integer> stats = new Map<String, Integer>();
+    private Map<String, Integer> stats = new HashMap<>();
 
     public Map<String, Integer> build() {
         return this.stats;
