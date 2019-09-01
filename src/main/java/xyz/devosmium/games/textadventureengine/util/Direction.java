@@ -1,4 +1,4 @@
-package xyz.devosmium.games.locations.util;
+package xyz.devosmium.games.textadventureengine.util;
 
 public enum Direction {
   NORTH("To the north", 0, 1, 0), SOUTH("To the south", 0, -1, 0), EAST("To the east", 1, 0, 0),

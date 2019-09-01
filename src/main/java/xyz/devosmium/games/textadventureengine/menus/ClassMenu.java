@@ -1,7 +1,7 @@
-package xyz.devosmium.games.menus;
+package xyz.devosmium.games.textadventureengine.menus;
 
-import xyz.devosmium.games.mobiles.Player;
-import xyz.devosmium.games.util.MessageQueue;
+import xyz.devosmium.games.textadventureengine.mobiles.Player;
+import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 public class ClassMenu extends BaseMenu {
 

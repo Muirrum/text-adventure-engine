@@ -1,10 +1,9 @@
-package xyz.devosmium.games;
+package xyz.devosmium.games.textadventureengine;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import xyz.devosmium.games.menus.MainMenu;
-import xyz.devosmium.games.util.MessageQueue;
+import xyz.devosmium.games.textadventureengine.menus.MainMenu;
 
 /**
  * Hello world!

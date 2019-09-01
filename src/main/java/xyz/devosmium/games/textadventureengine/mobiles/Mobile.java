@@ -1,4 +1,4 @@
-package xyz.devosmium.games.mobiles;
+package xyz.devosmium.games.textadventureengine.mobiles;
 
 import java.util.Map;
 

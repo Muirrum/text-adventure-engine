@@ -1,4 +1,4 @@
-package xyz.devosmium.games.util;
+package xyz.devosmium.games.textadventureengine.util;
 
 import java.util.Scanner;
 

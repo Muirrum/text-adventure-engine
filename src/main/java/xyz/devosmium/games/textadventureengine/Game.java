@@ -1,8 +1,8 @@
-package xyz.devosmium.games;
+package xyz.devosmium.games.textadventureengine;
 
-import xyz.devosmium.games.mobiles.Player;
-import xyz.devosmium.games.util.MessageQueue;
-import xyz.devosmium.games.util.PlayerType;
+import xyz.devosmium.games.textadventureengine.mobiles.Player;
+import xyz.devosmium.games.textadventureengine.util.MessageQueue;
+import xyz.devosmium.games.textadventureengine.util.PlayerType;
 
 public class Game {
 

@@ -1,4 +1,4 @@
-package xyz.devosmium.games.locations.util;
+package xyz.devosmium.games.textadventureengine.util;
 
 /**
  * Describes a point in 3D space

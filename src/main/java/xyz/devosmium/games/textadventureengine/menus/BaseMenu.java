@@ -1,11 +1,11 @@
-package xyz.devosmium.games.menus;
+package xyz.devosmium.games.textadventureengine.menus;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import xyz.devosmium.games.util.MessageQueue;
+import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 public class BaseMenu {
 

@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>xyz.devosmium.games</groupId>
-  <artifactId>textadventure</artifactId>
+  <artifactId>text-adventure-engine</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <name>textadventure</name>
@@ -16,7 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
-    <main>xyz.devosmium.games.App</main>
+    <main>xyz.devosmium.games.textadventureengine.App</main>
   </properties>
 
   <dependencies>
@@ -109,6 +109,11 @@
               </eclipse>
             </java>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.1.1</version>
         </plugin>
       </plugins>
     </pluginManagement>

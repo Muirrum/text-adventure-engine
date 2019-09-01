@@ -1,4 +1,4 @@
-package xyz.devosmium.games.exceptions;
+package xyz.devosmium.games.textadventureengine.exceptions;
 
 public class DeathException extends Exception {
 

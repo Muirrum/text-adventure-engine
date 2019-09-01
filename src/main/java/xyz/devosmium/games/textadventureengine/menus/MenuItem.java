@@ -1,4 +1,4 @@
-package xyz.devosmium.games.menus;
+package xyz.devosmium.games.textadventureengine.menus;
 
 public class MenuItem {
 
