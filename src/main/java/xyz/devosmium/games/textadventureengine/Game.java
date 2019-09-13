@@ -16,8 +16,12 @@ public class Game {
       switch (type) {
       case NEW:
         MessageQueue.add(intro);
+        gamePrompt(player, true);
+        break;
       case RETURNING:
         MessageQueue.add("How did you get here?");
+        gamePrompt(player, false);
+        break;
       default:
         MessageQueue.add("Invalid type.");
         throw new Exception("Invalid player type");
@@ -27,8 +31,13 @@ public class Game {
     }
   }
 
-  protected void gamePrompt(Player player) {
+  protected void gamePrompt(Player player, boolean newPlayer) {
     boolean contPrompt = true;
+    if (newPlayer) {
+      MessageQueue.add("Welcome, " + player.getName() + ". Have fun!");
+    } else {
+      MessageQueue.add("How'd you get here?");
+    }
 
   }
 }
