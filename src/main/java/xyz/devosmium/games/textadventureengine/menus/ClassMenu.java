@@ -1,7 +1,9 @@
 package xyz.devosmium.games.textadventureengine.menus;
 
+import xyz.devosmium.games.textadventureengine.Game;
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
+import xyz.devosmium.games.textadventureengine.util.PlayerType;
 
 public class ClassMenu extends BaseMenu {
 
@@ -14,6 +16,7 @@ public class ClassMenu extends BaseMenu {
       MenuItem selectedItem = displayMenu(this.menuItems);
       if (testOption(selectedItem)) {
         Player player = Player.getInstance();
+        Game game = new Game(player, PlayerType.NEW);
         break;
       }
     }
