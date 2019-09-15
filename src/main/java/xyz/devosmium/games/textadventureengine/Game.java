@@ -39,5 +39,9 @@ public class Game {
       MessageQueue.add("How'd you get here?");
     }
 
+    do {
+      
+    } while (contPrompt);
+
   }
 }
