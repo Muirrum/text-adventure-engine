@@ -17,8 +17,16 @@ public class CoordinateBuilder {
     this.z = z;
   }
 
+  public CoordinateBuilder() {
+
+  }
+
   public Coordinate buildCoordinate() {
     return new Coordinate(x, y, z);
+  }
+
+  public Coordinate buildCoordinate(int x, int y, int z) {
+    return new Coordinate (x, y, z);
   }
 
 }
