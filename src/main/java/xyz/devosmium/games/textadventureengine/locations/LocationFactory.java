@@ -14,6 +14,10 @@ public class LocationFactory {
 
   private ArrayList<Location> locations;
 
+  public ArrayList<Location> getLocations() {
+    return locations;
+  }
+
   public LocationFactory() {
     locations = new ArrayList<Location>();
   }
