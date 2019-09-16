@@ -21,6 +21,12 @@ public class Coordinate {
     this.z = z;
   }
 
+  /**
+   * Gets the coordinate in a given Direction
+   * 
+   * @see Coordinate
+   * @return The neighboring Coordinate
+   */
   public Coordinate getBorderingCoordinate(Direction dir) {
     return new Coordinate(x + dir.getDx(), y + dir.getDy(), z + dir.getDz());
   }

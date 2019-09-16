@@ -5,26 +5,48 @@ import java.util.ArrayList;
 import xyz.devosmium.games.textadventureengine.mobiles.Mobile;
 import xyz.devosmium.games.textadventureengine.util.Coordinate;
 
+/**
+ * Base class for creating a Location instance. Library users should extend this
+ * class and put the buildLocation() methods in the constructor. Each
+ * LocationFactory should represent one Area (or domain) in the world.
+ */
 public class LocationFactory {
 
-    private ArrayList<Location> locations;
-    
-    public LocationFactory() {
-        locations = new ArrayList<Location>();
-    }
+  private ArrayList<Location> locations;
 
-    public Location buildLocation(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles) {
-        Location newLoc = new Location(coordinates, shortString, longString, mobiles);
+  public LocationFactory() {
+    locations = new ArrayList<Location>();
+  }
 
-        locations.add(newLoc);
-        return newLoc;
-    }
+  /**
+   * Creates a new location with Mobiles. Also adds the instance to the ArrayList
+   * of Locations in this area
+   * 
+   * @param coordinates The coordinates of the location in the world
+   * @param shortString The title of the location
+   * @param longString The scenic description of the room
+   * @param mobiles An ArrayList of Mobile instances
+   * @return The Location instance
+   */
+  public Location buildLocation(Coordinate coordinates, String shortString, String longString,
+      ArrayList<Mobile> mobiles) {
+    Location newLoc = new Location(coordinates, shortString, longString, mobiles);
 
-    public Location buildLocation(Coordinate coordinates, String shortString, String longString) {
-        Location newLoc = new Location(coordinates, shortString, longString);
+    locations.add(newLoc);
+    return newLoc;
+  }
 
-        locations.add(newLoc);
+  /**
+   * Creates a new Location without Mobiles.
+   * 
+   * @see buildLocation()
+   * @return The Location instance
+   */
+  public Location buildLocation(Coordinate coordinates, String shortString, String longString) {
+    Location newLoc = new Location(coordinates, shortString, longString);
 
-        return newLoc;
-    }
+    locations.add(newLoc);
+
+    return newLoc;
+  }
 }

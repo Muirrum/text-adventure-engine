@@ -3,6 +3,10 @@ package xyz.devosmium.games.textadventureengine.mobiles;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Provides an easy way to generate a Mobile stat HashMap for creating new
+ * Mobiles
+ */
 public class StatFactory {
 
   private Map<String, Integer> stats = new HashMap<>();

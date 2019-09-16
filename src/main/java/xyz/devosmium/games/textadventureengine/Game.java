@@ -40,7 +40,7 @@ public class Game {
     }
 
     do {
-      
+
     } while (contPrompt);
 
   }

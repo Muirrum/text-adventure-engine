@@ -22,6 +22,9 @@ public class Mobile {
 
   private int gold;
 
+  /**
+   * Represents a Mobile Entity (Mobile)
+   */
   public Mobile(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
     this.maxHealth = maxHealth;
     this.health = health;

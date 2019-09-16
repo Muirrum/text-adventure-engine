@@ -1,5 +1,9 @@
 package xyz.devosmium.games.textadventureengine.util;
 
+/**
+ * Represents a direction that a player can go. Currently restricted to the four
+ * cardinal directions and two vertical directions
+ */
 public enum Direction {
   NORTH("To the north", 0, 1, 0), SOUTH("To the south", 0, -1, 0), EAST("To the east", 1, 0, 0),
   WEST("To the west", -1, 0, 0), DOWN("Down", 0, 0, -1), UP("Up", 0, 0, 1);
