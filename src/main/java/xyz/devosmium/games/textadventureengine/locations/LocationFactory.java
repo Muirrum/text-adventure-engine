@@ -14,9 +14,8 @@ public class LocationFactory {
 
   private ArrayList<Location> locations;
 
-  public ArrayList<Location> getLocations() {
-    return locations;
-  }
+  public ArrayList<Location> getLocations() { return locations;}
+
 
   public LocationFactory() {
     locations = new ArrayList<Location>();
@@ -30,13 +29,14 @@ public class LocationFactory {
    * @param shortString The title of the location
    * @param longString The scenic description of the room
    * @param mobiles An ArrayList of Mobile instances
+   * @param area The area to add the location to
    * @return The Location instance
    */
   public Location buildLocation(Coordinate coordinates, String shortString, String longString,
-      ArrayList<Mobile> mobiles) {
+      ArrayList<Mobile> mobiles, Area area) {
     Location newLoc = new Location(coordinates, shortString, longString, mobiles);
 
-    locations.add(newLoc);
+    area.registerLocation(newLoc);
     return newLoc;
   }
 
@@ -46,10 +46,10 @@ public class LocationFactory {
    * @see buildLocation()
    * @return The Location instance
    */
-  public Location buildLocation(Coordinate coordinates, String shortString, String longString) {
+  public Location buildLocation(Coordinate coordinates, String shortString, String longString, Area area) {
     Location newLoc = new Location(coordinates, shortString, longString);
 
-    locations.add(newLoc);
+    area.registerLocation(newLoc);
 
     return newLoc;
   }

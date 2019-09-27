@@ -18,7 +18,7 @@ public class LocationFactoryTest extends LocationFactory {
 
         Coordinate realCoord = cBuilder.buildCoordinate(1, 1, 1);
 
-        test.buildLocation(cBuilder.buildCoordinate(1, 1, 1), "Test", "Testing Room");
+        test.buildLocation(cBuilder.buildCoordinate(1, 1, 1), "Test", "Testing Room", null);
 
         Location testLoc = test.getLocations().get(0);
 
