@@ -5,6 +5,16 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'application'
+}
+
+apply plugin : 'application'
+ext {
+    javaMainClass = "xyz.devosmium.games.textadventureengine.App"
+}
+
+application {
+    mainClassName = javaMainClass
 }
 
 repositories {
@@ -36,6 +46,7 @@ publishing {
         }
     }
 }
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
