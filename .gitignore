@@ -13,5 +13,5 @@ buildNumber.properties
 .idea/*
 
 # Gradle
-*gradle/
+.gradle/
 build/
