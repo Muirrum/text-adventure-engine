@@ -10,6 +10,7 @@ public class Area {
 
     public Area(String name) {
         this.name = name;
+        locations = new ArrayList<Location>();
     }
 
     public void registerLocation(Location location) {
