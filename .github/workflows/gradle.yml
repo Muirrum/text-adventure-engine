@@ -16,4 +16,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Package and deploy to GitHub PR
+      env:
+        ORG_GRADLE_PROJECT_ghUsername: ${{ secrets.ORG_GRADLE_PROJECT_ghUsername }}
+        ORG_GRADLE_PROJECT_ghToken: ${{ secrets.ORG_GRADLE_PROJECT_ghToken }}
       run: ./gradlew publish
