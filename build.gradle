@@ -5,16 +5,14 @@
 plugins {
     id 'java'
     id 'maven-publish'
-    id 'application'
+    id 'java-library'
+   id "io.freefair.github.package-registry-maven-publish" version "4.1.2"
 }
 
-apply plugin : 'application'
-ext {
-    javaMainClass = "xyz.devosmium.games.textadventureengine.App"
-}
-
-application {
-    mainClassName = javaMainClass
+github {
+    slug = "Dev-Osmium/text-adventure-engine"
+    username = project.properties["ghUsername"]?.toString()
+    token = project.properties["ghToken"]?.toString()
 }
 
 repositories {
