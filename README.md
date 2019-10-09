@@ -1,3 +1,3 @@
-# text-adventure
+# Text Adventure Engine
 
-A simple text adventure game
+An opinionated way for developers to make their own text adventure games.
