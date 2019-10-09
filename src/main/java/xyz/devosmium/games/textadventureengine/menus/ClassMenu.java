@@ -24,7 +24,7 @@ public class ClassMenu extends BaseMenu {
 
   private static boolean testOption(MenuItem m) {
     String key = m.getCmdKey();
-    MessageQueue.add("Selected" + key.toUpperCase());
+    MessageQueue.add("Selected " + key.toUpperCase());
     return true;
   }
 }
