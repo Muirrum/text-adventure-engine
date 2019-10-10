@@ -5,6 +5,12 @@ import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 import java.util.List;
 
+/**
+ * Help command class
+ * <p>
+ *    Get all commands available and return the command  - description
+ * </p>
+ */
 @CommandAnnotation(command = "help", description = "Displays help for commands")
 public class Help implements Command {
     @Override

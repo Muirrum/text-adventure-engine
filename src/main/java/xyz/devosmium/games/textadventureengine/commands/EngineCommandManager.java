@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Contains the commands required to interact with the game itself, like help
- * and exit
+ * Class to manage the input from user and then return the respective command.
  * <p>
- * Commands are annotated with the @Command annotation.
+ * Commands are annotated with the @{@link CommandAnnotation} annotation.
+ * <p>All commands should implements @{@link Command} interface</p>
  */
 public class EngineCommandManager {
 
@@ -31,7 +31,10 @@ public class EngineCommandManager {
         this.commandInput = command.trim().toLowerCase();
     }
 
-
+    /**
+     * From a command input from user, passed by into the constructor, check if the command exists.
+     * When command is found return it executing the behavior of the class that implements the command interface.
+     */
     public void executeCommand() {
         try {
             findCommands();
@@ -48,11 +51,19 @@ public class EngineCommandManager {
         }
     }
 
+    /**
+     * Find the commands and return them
+     * @return command list
+     */
     public List<CommandModel> getCommands() {
         findCommands();
         return commands;
     }
 
+    /**
+     * From all classes with have the @{@link CommandAnnotation}, get their
+     * command, description and class, to create a list of {@link CommandModel}
+     */
     private void findCommands() {
         Reflections reflections = new Reflections(PACKAGE_PATH);
         for (Class<?> clz : reflections.getTypesAnnotatedWith(CommandAnnotation.class)) {
