@@ -6,6 +6,7 @@ public class MenuItem {
   protected String description;
 
   public MenuItem(String command, String description) {
+    
     this.command = command;
     this.description = description;
   }

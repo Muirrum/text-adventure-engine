@@ -5,6 +5,7 @@ package xyz.devosmium.games.textadventureengine.util;
  * cardinal directions and two vertical directions
  */
 public enum Direction {
+
   NORTH("To the north", 0, 1, 0), SOUTH("To the south", 0, -1, 0), EAST("To the east", 1, 0, 0),
   WEST("To the west", -1, 0, 0), DOWN("Down", 0, 0, -1), UP("Up", 0, 0, 1);
 
@@ -14,6 +15,7 @@ public enum Direction {
   private final int dz;
 
   private Direction(String description, int dx, int dy, int dz) {
+
     this.description = description;
     this.dx = dx;
     this.dy = dy;

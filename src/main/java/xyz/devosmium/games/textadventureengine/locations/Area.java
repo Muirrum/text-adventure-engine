@@ -27,7 +27,9 @@ public class Area {
      * @return Location if it's been registered, or null
      */
     public Location getLocationByName(String name) {
+
         for (Location loc : locations) {
+          
             if (loc.getShort().equals(name)) {
                 return loc;
             } else {
@@ -37,5 +39,5 @@ public class Area {
         return null;
     }
 
-    
+
 }
