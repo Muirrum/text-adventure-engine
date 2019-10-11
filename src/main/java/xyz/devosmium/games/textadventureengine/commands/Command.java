@@ -1,8 +1,7 @@
 package xyz.devosmium.games.textadventureengine.commands;
 
-public @interface Command {
+import xyz.devosmium.games.textadventureengine.mobiles.Player;
 
-  String command();
-
-  String description();
+public interface Command {
+    void execute(Player player);
 }
