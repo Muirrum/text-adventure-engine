@@ -1,13 +1,18 @@
 package xyz.devosmium.games.textadventureengine.mobiles;
 
 import java.util.Map;
+import xyz.devosmium.games.textadventureengine.items.Inventory;
 
 /**
  * Special class for Players. Contains some special things for leveling
  */
 public class Player extends Mobile {
+
+  public Inventory inventory;
   private Player(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
     super(maxHealth, health, name, level, stats, gold);
+
+    inventory = new Inventory();
 
   }
 
