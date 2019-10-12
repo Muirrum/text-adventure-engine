@@ -88,4 +88,7 @@ public class Mobile {
     }
   }
 
+  public Location getLocation() { return currentLocation; }
+  public void setLocation(Location newLoc) { currentLocation = newLoc; }
+
 }
