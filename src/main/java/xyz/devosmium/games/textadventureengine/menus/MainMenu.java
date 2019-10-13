@@ -1,10 +1,12 @@
 package xyz.devosmium.games.textadventureengine.menus;
 
+import xyz.devosmium.games.textadventureengine.locations.World;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 public class MainMenu extends BaseMenu implements Runnable {
 
   public MainMenu() {
+    World world = new World();
     start();
   }
 

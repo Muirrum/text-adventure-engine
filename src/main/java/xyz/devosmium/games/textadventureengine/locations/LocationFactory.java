@@ -53,4 +53,18 @@ public class LocationFactory {
 
     return newLoc;
   }
+
+  /**
+   * Creates a new location without Mobiles. Also adds the instance to the ArrayList
+   * of Locations in this area
+   *
+   * @param coordinates The coordinates of the location in the world
+   * @param shortString The title of the location
+   * @param longString The scenic description of the room
+   * @param area The area to add the location to
+   */
+  public void addLocation(Coordinate coordinates, String shortString, String longString, Area area) {
+    Location newLoc = new Location(coordinates, shortString, longString);
+    area.registerLocation(newLoc);
+  }
 }
