@@ -14,16 +14,12 @@ import xyz.devosmium.games.textadventureengine.util.CoordinateBuilder;
 public class LocationFactoryTest extends LocationFactory {
 
     @Test
-    @Ignore
     public void buildLocationTest() {
         LocationFactory test = new LocationFactory();
-        CoordinateBuilder cBuilder = new CoordinateBuilder();
+        Coordinate realCoord = new Coordinate(1, 1, 1);
+        Location testLoc;
 
-        Coordinate realCoord = cBuilder.buildCoordinate(1, 1, 1);
-
-        test.buildLocation(cBuilder.buildCoordinate(1, 1, 1), "Test", "Testing Room", new Area("test", 1234));
-
-        Location testLoc = test.getLocations().get(0);
+        testLoc = test.buildLocation(realCoord, "Test", "Testing Room");
 
         assertEquals(realCoord.x, testLoc.getCoordinate().x);
 

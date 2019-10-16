@@ -1,6 +1,7 @@
 package xyz.devosmium.games.textadventureengine;
 
 import xyz.devosmium.games.textadventureengine.exceptions.DeathException;
+import xyz.devosmium.games.textadventureengine.locations.World;
 import xyz.devosmium.games.textadventureengine.menus.MainMenu;
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
@@ -13,6 +14,8 @@ public class Game {
   String intro = "You blink your eyes open, and stand up.";
 
   public Game(Player player, PlayerType type) {
+    World world = new World();
+
     this.player = player;
     try {
       switch (type) {

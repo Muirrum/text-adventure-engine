@@ -14,7 +14,7 @@ public class World {
         areas = new AreaCollection();
         locations = new LocationFactory();
 
-        //Example Areas for proof of concept
+        //Example Areas for proof of concept. Area is Optional
         areas.addAreaObject(new Area("Castle", 1));
         areas.addAreaObject(new Area("Throne Room", 2));
         areas.addAreaObject(new Area("Jail", 3));
@@ -24,10 +24,10 @@ public class World {
         Coordinate coord1 = new Coordinate(1,2,1);
 
         //Adding a location to an area by ID
-        locations.buildLocation(coord, "Room 1", "Knight chamber in castle over looking town",
+        locations.addLocation(coord, "Room 1", "Knight chamber in castle over looking town",
                 areas.searchAreaByID(1));
         //Adding a location to an area by Name
-        locations.buildLocation(coord1, "Room 2", "Cafeteria where everyone eats",
+        locations.addLocation(coord1, "Room 2", "Cafeteria where everyone eats",
                 areas.searchAreaByName("Castle"));
     }
 
