@@ -5,13 +5,9 @@ import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 public class MainMenu extends BaseMenu implements Runnable {
 
-  public MainMenu() {
-    start();
-  }
+  public MainMenu() { start(); }
 
-  public void run() {
-    start();
-  }
+  public void run() { start(); }
 
   public void start() {
     // Add items

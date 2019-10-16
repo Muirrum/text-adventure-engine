@@ -1,7 +1,6 @@
 package xyz.devosmium.games.textadventureengine.locations;
 
 import java.util.ArrayList;
-
 import xyz.devosmium.games.textadventureengine.mobiles.Mobile;
 import xyz.devosmium.games.textadventureengine.util.Coordinate;
 
@@ -14,35 +13,35 @@ public class LocationFactory {
 
   private ArrayList<Location> locations;
 
-  public ArrayList<Location> getLocations() { return locations;}
+  public ArrayList<Location> getLocations() { return locations; }
 
-
-  public LocationFactory() {
-    locations = new ArrayList<Location>();
-  }
+  public LocationFactory() { locations = new ArrayList<Location>(); }
 
   /**
    * Creates a new location with Mobiles.
-   * 
+   *
    * @param coordinates The coordinates of the location in the world
    * @param shortString The title of the location
    * @param longString The scenic description of the room
    * @param mobiles An ArrayList of Mobile instances
    * @return The Location instance
    */
-  public Location buildLocation(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles) {
-    Location newLoc = new Location(coordinates, shortString, longString, mobiles);
+  public Location buildLocation(Coordinate coordinates, String shortString,
+                                String longString, ArrayList<Mobile> mobiles) {
+    Location newLoc =
+        new Location(coordinates, shortString, longString, mobiles);
 
     return newLoc;
   }
 
   /**
    * Creates a new Location without Mobiles.
-   * 
+   *
    * @see buildLocation()
    * @return The Location instance
    */
-  public Location buildLocation(Coordinate coordinates, String shortString, String longString) {
+  public Location buildLocation(Coordinate coordinates, String shortString,
+                                String longString) {
     Location newLoc = new Location(coordinates, shortString, longString);
 
     return newLoc;
@@ -56,7 +55,8 @@ public class LocationFactory {
    * @param longString The scenic description of the room
    * @param area The area to add the location to
    */
-  public Location addLocation(Coordinate coordinates, String shortString, String longString, Area area) {
+  public Location addLocation(Coordinate coordinates, String shortString,
+                              String longString, Area area) {
     Location newLoc = new Location(coordinates, shortString, longString);
     area.registerLocation(newLoc);
 
@@ -71,7 +71,9 @@ public class LocationFactory {
    * @param longString The scenic description of the room
    * @param area The area to add the location to
    */
-  public Location addLocation(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles, Area area) {
+  public Location addLocation(Coordinate coordinates, String shortString,
+                              String longString, ArrayList<Mobile> mobiles,
+                              Area area) {
     Location newLoc = new Location(coordinates, shortString, longString);
     area.registerLocation(newLoc);
 
