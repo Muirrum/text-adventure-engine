@@ -11,7 +11,6 @@ import xyz.devosmium.games.textadventureengine.menus.MainMenu;
  */
 public class App {
   private static Logger logger = LoggerFactory.getLogger(App.class);
-  private static AreaCollection areas;
 
 
   public static void main(String[] args) {
