@@ -2,6 +2,7 @@ package xyz.devosmium.games.textadventureengine;
 
 import xyz.devosmium.games.textadventureengine.commands.EngineCommandManager;
 import xyz.devosmium.games.textadventureengine.exceptions.DeathException;
+import xyz.devosmium.games.textadventureengine.locations.World;
 import xyz.devosmium.games.textadventureengine.menus.MainMenu;
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;

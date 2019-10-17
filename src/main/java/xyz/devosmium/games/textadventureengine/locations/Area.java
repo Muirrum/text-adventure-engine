@@ -4,38 +4,25 @@ import java.util.ArrayList;
 
 public class Area {
 
-    private String name;
+    private String areaName;
+    private int areaID;
+    private ArrayList<Location> areaLocations;
 
-    private ArrayList<Location> locations;
+    public Area(String areaName, int areaID) {
+        this.areaName = areaName;
+        this.areaID = areaID;
+        areaLocations = new ArrayList<Location>();
+    }
 
-    public Area(String name) {
-        this.name = name;
-        locations = new ArrayList<Location>();
+    public int getAreaID() {
+        return areaID;
+    }
+
+    public String getAreaName() {
+        return areaName;
     }
 
     public void registerLocation(Location location) {
-        locations.add(location);
+        areaLocations.add(location);
     }
-
-    public ArrayList<Location> getLocationList() {
-        return locations;
-    }
-
-    /**
-     * Searchs the registered locations by name
-     * @param name The name of the location (short string)
-     * @return Location if it's been registered, or null
-     */
-    public Location getLocationByName(String name) {
-        for (Location loc : locations) {
-            if (loc.getShort().equals(name)) {
-                return loc;
-            } else {
-                continue;
-            }
-        }
-        return null;
-    }
-
-    
 }
