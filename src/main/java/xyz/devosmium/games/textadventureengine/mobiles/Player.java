@@ -8,14 +8,12 @@ import java.util.Map;
 public class Player extends Mobile {
   private Player(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
     super(maxHealth, health, name, level, stats, gold);
-
   }
 
   private static Player player;
 
   public static Player getInstance() {
     if (player == null) {
-
       player = new Player(15, 15, "player", 1, buildInitialStatBlock(), 0);
     }
 

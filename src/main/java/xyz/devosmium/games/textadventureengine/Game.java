@@ -5,6 +5,7 @@ import xyz.devosmium.games.textadventureengine.exceptions.DeathException;
 import xyz.devosmium.games.textadventureengine.locations.World;
 import xyz.devosmium.games.textadventureengine.menus.MainMenu;
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
+import xyz.devosmium.games.textadventureengine.save.SaveProvider;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 import xyz.devosmium.games.textadventureengine.util.PlayerType;
 
@@ -39,9 +40,11 @@ public class Game {
     }
 
     protected void gamePrompt(Player player, boolean newPlayer) throws DeathException {
+
         boolean contPrompt = true;
         if (newPlayer) {
             MessageQueue.add("Welcome, " + player.getName() + ". Have fun!");
+
         } else {
             MessageQueue.add("How'd you get here?");
         }

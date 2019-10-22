@@ -41,7 +41,9 @@ dependencies {
     compile group: 'org.reflections', name: 'reflections', version: '0.9.11'
     compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
-
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'org.xerial:sqlite-jdbc:3.28.0'
+    
     runtime 'ch.qos.logback:logback-classic:1.2.3'
     testCompile 'junit:junit:4.11'
 }
