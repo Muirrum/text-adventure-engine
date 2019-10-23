@@ -57,20 +57,25 @@ public class SaveProvider {
                 " MAX_HEALTH     INT     NOT NULL, " +
                 " HEALTH         INT     NOT NULL, " +
                 " LEVEL          INT     NOT NULL, " +
-                " GOLD           INT     NOT NULL " +
-                ")";
+                " GOLD           INT     NOT NULL )";
         statement.executeUpdate(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS PLAYER_STATS " +
-                "(PLAYER_ID      TEXT    NOT NULL, " +
+                "(PLAYER_ID      TEXT   NOT NULL, " +
                 " STRENGTH       INT    NOT NULL, " +
                 " DEXTERITY      INT    NOT NULL, " +
                 " INTELLIGENCE   INT    NOT NULL, " +
                 " LUCK           INT    NOT NULL, " +
                 " WISDOM         INT    NOT NULL,  " +
-                " FOREIGN KEY (PLAYER_ID) REFERENCES PLAYER(PLAYER_ID)" +
-                ")";
+                " FOREIGN KEY (PLAYER_ID) REFERENCES PLAYER(PLAYER_ID))";
         statement.executeUpdate(sql);
+
+        sql = "CREATE TABLE IF NOT EXISTS MOBILES " +
+                "(MOBILE_ID     TEXT PRIMARY KEY NOT NULL," +
+                " NAME          TEXT    NOT NULL," +
+                " MAX_HEALTH    INT     NOT NULL," +
+                " HEALTH        INT     NOT NULL," +
+                " LEVEL         INT     NOT NULL )";
         statement.close();
     }
 
@@ -80,6 +85,8 @@ public class SaveProvider {
      * @throws SQLException Query issues returns exception.
      */
     private void saveData() throws SQLException {
+
+        //Prepare sql statement to insert player details into the Player Table in Game.db
         PreparedStatement stm = connection.prepareStatement("INSERT INTO PLAYER VALUES (?,?,?,?,?,?)");
         stm.setString(1, player.getPlayerID());
         stm.setString(2, player.getName());
@@ -87,8 +94,12 @@ public class SaveProvider {
         stm.setInt(4, player.getHealth());
         stm.setInt(5, player.getLevel());
         stm.setInt(6, player.getGold());
+        //Execute the SQL statement.
         stm.executeUpdate();
 
+        /** Prepare sql statement to insert player stats into PLAYER_STATS Table in Game.db. PLAYER_STATS references
+        *   PLAYER Table via foreign key using the Unique Player ID
+        */
         stm = connection.prepareStatement("INSERT INTO PLAYER_STATS VALUES (?,?,?,?,?,?)");
         stm.setString(1, player.getPlayerID());
         stm.setInt(2, player.getStat(Stats.STRENGTH));
@@ -97,6 +108,7 @@ public class SaveProvider {
         stm.setInt(5, player.getStat(Stats.LUCK));
         stm.setInt(6, player.getStat(Stats.WISDOM));
         stm.executeUpdate();
+
     }
 
 }

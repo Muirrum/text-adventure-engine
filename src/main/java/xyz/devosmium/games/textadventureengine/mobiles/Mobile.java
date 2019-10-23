@@ -6,23 +6,21 @@ import java.util.UUID;
 /**
  * Represents a mobile entity - something that can move around on its own. These
  * entities often have health, names, levels, inventories, and stats. They can
- * interact with the world around them.
+ * interact with the world around them. Mobiles are assigned a unique identifier,
+ * so that they can be saved in the database.
  */
 public class Mobile {
 
     // Declare all variables
     private String playerID;
+    private String name;
     private int maxHealth;
     private int health;
-
-    private String name;
-
     private int level;
+    private int gold;
 
     // Stats
     protected Map<String, Integer> stats;
-
-    private int gold;
 
     /**
      * Represents a Mobile Entity (Mobile)
