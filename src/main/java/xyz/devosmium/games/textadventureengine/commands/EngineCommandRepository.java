@@ -1,7 +1,6 @@
 package xyz.devosmium.games.textadventureengine.commands;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
