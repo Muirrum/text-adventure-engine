@@ -10,7 +10,7 @@ public class Coordinate {
 
   /**
    * Create a coordinate based on 3 defined integers
-   * 
+   *
    * @param x the x coordinate
    * @param y the y coordinate
    * @param z the z coordinate
@@ -23,7 +23,7 @@ public class Coordinate {
 
   /**
    * Gets the coordinate in a given Direction
-   * 
+   *
    * @see Coordinate
    * @return The neighboring Coordinate
    */

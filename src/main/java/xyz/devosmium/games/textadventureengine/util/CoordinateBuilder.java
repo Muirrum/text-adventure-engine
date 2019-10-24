@@ -2,7 +2,7 @@ package xyz.devosmium.games.textadventureengine.util;
 
 /**
  * Builds a Coordinate type
- * 
+ *
  * @see xyz.devosmium.games.textadventureengine.util.Coordinate
  */
 public class CoordinateBuilder {
