@@ -14,7 +14,7 @@ public class Player extends Mobile {
 
   public Inventory inventory;
   private Player(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
-    super(maxHealth, health, name, level, stats, gold, new LocationFactory().buildLocation(new CoordinateBuilder(0, 0, 0).buildCoordinate(), "Start", "Starting room", new Area("Default")));
+    super(maxHealth, health, name, level, stats, gold, new LocationFactory().buildLocation(new CoordinateBuilder(0, 0, 0).buildCoordinate(), "Start", "Starting room"));
 
     inventory = new Inventory();
 
