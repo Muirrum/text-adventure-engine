@@ -9,5 +9,6 @@ public class Get implements Command {
     @Override
     public void execute(Player player) {
         Location loc = player.getLocation();
+        
     }
 }
