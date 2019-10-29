@@ -13,6 +13,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "EikeSan",
+      "name": "Eike Santiago",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/13926450?v=4",
+      "profile": "https://github.com/EikeSan",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
