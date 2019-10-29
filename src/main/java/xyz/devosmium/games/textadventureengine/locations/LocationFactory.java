@@ -22,21 +22,17 @@ public class LocationFactory {
   }
 
   /**
-   * Creates a new location with Mobiles. Also adds the instance to the ArrayList
-   * of Locations in this area
+   * Creates a new location with Mobiles.
    * 
    * @param coordinates The coordinates of the location in the world
    * @param shortString The title of the location
    * @param longString The scenic description of the room
    * @param mobiles An ArrayList of Mobile instances
-   * @param area The area to add the location to
    * @return The Location instance
    */
-  public Location buildLocation(Coordinate coordinates, String shortString, String longString,
-      ArrayList<Mobile> mobiles, Area area) {
+  public Location buildLocation(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles) {
     Location newLoc = new Location(coordinates, shortString, longString, mobiles);
 
-    area.registerLocation(newLoc);
     return newLoc;
   }
 
@@ -46,9 +42,37 @@ public class LocationFactory {
    * @see buildLocation()
    * @return The Location instance
    */
-  public Location buildLocation(Coordinate coordinates, String shortString, String longString, Area area) {
+  public Location buildLocation(Coordinate coordinates, String shortString, String longString) {
     Location newLoc = new Location(coordinates, shortString, longString);
 
+    return newLoc;
+  }
+
+  /**
+   * Creates a new location without Mobiles and registers it with an Area
+   *
+   * @param coordinates The coordinates of the location in the world
+   * @param shortString The title of the location
+   * @param longString The scenic description of the room
+   * @param area The area to add the location to
+   */
+  public Location addLocation(Coordinate coordinates, String shortString, String longString, Area area) {
+    Location newLoc = new Location(coordinates, shortString, longString);
+    area.registerLocation(newLoc);
+
+    return newLoc;
+  }
+
+  /**
+   * Creates a new location without Mobiles and registers it with an area
+   *
+   * @param coordinates The coordinates of the location in the world
+   * @param shortString The title of the location
+   * @param longString The scenic description of the room
+   * @param area The area to add the location to
+   */
+  public Location addLocation(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles, Area area) {
+    Location newLoc = new Location(coordinates, shortString, longString);
     area.registerLocation(newLoc);
 
     return newLoc;

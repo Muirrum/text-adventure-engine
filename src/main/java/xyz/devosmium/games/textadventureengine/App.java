@@ -12,6 +12,7 @@ import xyz.devosmium.games.textadventureengine.menus.MainMenu;
 public class App {
   private static Logger logger = LoggerFactory.getLogger(App.class);
 
+
   public static void main(String[] args) {
     logger.debug("Starting game");
     new MainMenu();
