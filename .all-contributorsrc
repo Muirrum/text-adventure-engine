@@ -23,6 +23,20 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "Dev-Osmium",
+      "name": "Owen Salter",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/8702646?v=4",
+      "profile": "https://devosmium.xyz",
+      "contributions": [
+        "question",
+        "code",
+        "doc",
+        "ideas",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
