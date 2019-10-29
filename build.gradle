@@ -6,16 +6,13 @@ plugins {
     id 'java'
     id 'maven-publish'
     id 'java-library'
-   id 'com.diffplug.gradle.spotless' version '3.25.0'
+   id "io.freefair.github.package-registry-maven-publish" version "4.1.2"
 }
 
-apply plugin: 'java'
-
-spotless {
-    java {
-        //removeUnusedImports()
-
-    }
+github {
+    slug = "Dev-Osmium/text-adventure-engine"
+    username = project.properties["ghUsername"]?.toString()
+    token = project.properties["ghToken"]?.toString()
 }
 
 repositories {
@@ -23,38 +20,31 @@ repositories {
     maven {
         url = 'https://repo1.maven.org/maven2'
     }
+
+    maven {
+        url = 'https://maven.pkg.github.com/Dev-Osmium'
+    }
 }
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
-    compile group: 'org.reflections', name: 'reflections', version: '0.9.11'
-    compile group: 'com.google.guava', name: 'guava', version: '28.1-jre'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
-
     runtime 'ch.qos.logback:logback-classic:1.2.3'
     testCompile 'junit:junit:4.11'
 }
 
 group = 'xyz.devosmium.games'
-version = '1.2-SNAPSHOT'
+version = '1.1-SNAPSHOT'
+description = 'textadventure'
+sourceCompatibility = '1.8'
 
 publishing {
-    repositories {
-        maven {
-            name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/Dev-Osmium/text-adventure-engine")
-            credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
-                password = project.findProperty("gpr.key") ?: System.getenv("GPR_API_KEY")
-            }
-        }
-    }
     publications {
-        gpr(MavenPublication) {
+        maven(MavenPublication) {
             from(components.java)
         }
     }
 }
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
