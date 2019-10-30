@@ -1,5 +1,6 @@
 # Text Adventure Engine
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+![GitHub](https://img.shields.io/github/license/Dev-Osmium/text-adventure-engine?style=flat-square)
 
 An opinionated way for developers to make their own text adventure games.
 
