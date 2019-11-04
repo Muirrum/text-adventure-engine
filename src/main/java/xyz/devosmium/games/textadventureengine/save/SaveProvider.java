@@ -1,9 +1,15 @@
 package xyz.devosmium.games.textadventureengine.save;
 
+import xyz.devosmium.games.textadventureengine.Game;
+import xyz.devosmium.games.textadventureengine.menus.ClassMenu;
 import xyz.devosmium.games.textadventureengine.mobiles.Player;
+import xyz.devosmium.games.textadventureengine.mobiles.StatFactory;
 import xyz.devosmium.games.textadventureengine.mobiles.Stats;
+import xyz.devosmium.games.textadventureengine.util.PlayerType;
 
 import java.sql.*;
+import java.util.Map;
+import java.util.Scanner;
 
 /**
  * SaveProvider
@@ -19,7 +25,8 @@ public class SaveProvider {
 
     private Connection connection = null;
     private Statement statement;
-    private Player player;
+    private Player myPlayer = null;
+    Map<String, Integer> stats;
 
     /**
      * SQLite will instantiate a database called game.db. This database will hold all object information of the world
@@ -29,7 +36,7 @@ public class SaveProvider {
      */
     public void SQLiteSave(Player player) {
 
-        this.player = player;
+        this.myPlayer = player;
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:game.db");
             createTable();
@@ -88,27 +95,150 @@ public class SaveProvider {
 
         //Prepare sql statement to insert player details into the Player Table in Game.db
         PreparedStatement stm = connection.prepareStatement("INSERT INTO PLAYER VALUES (?,?,?,?,?,?)");
-        stm.setString(1, player.getPlayerID());
-        stm.setString(2, player.getName());
-        stm.setInt(3, player.getMaxHealth());
-        stm.setInt(4, player.getHealth());
-        stm.setInt(5, player.getLevel());
-        stm.setInt(6, player.getGold());
+        stm.setString(1, myPlayer.getPlayerID());
+        stm.setString(2, myPlayer.getName());
+        stm.setInt(3, myPlayer.getMaxHealth());
+        stm.setInt(4, myPlayer.getHealth());
+        stm.setInt(5, myPlayer.getLevel());
+        stm.setInt(6, myPlayer.getGold());
         //Execute the SQL statement.
         stm.executeUpdate();
 
         /** Prepare sql statement to insert player stats into PLAYER_STATS Table in Game.db. PLAYER_STATS references
-        *   PLAYER Table via foreign key using the Unique Player ID
-        */
+         *   PLAYER Table via foreign key using the Unique Player ID
+         */
         stm = connection.prepareStatement("INSERT INTO PLAYER_STATS VALUES (?,?,?,?,?,?)");
-        stm.setString(1, player.getPlayerID());
-        stm.setInt(2, player.getStat(Stats.STRENGTH));
-        stm.setInt(3, player.getStat(Stats.DEXTERITY));
-        stm.setInt(4, player.getStat(Stats.INTELLIGENCE));
-        stm.setInt(5, player.getStat(Stats.LUCK));
-        stm.setInt(6, player.getStat(Stats.WISDOM));
+        stm.setString(1, myPlayer.getPlayerID());
+        stm.setInt(2, myPlayer.getStat(Stats.STRENGTH));
+        stm.setInt(3, myPlayer.getStat(Stats.DEXTERITY));
+        stm.setInt(4, myPlayer.getStat(Stats.INTELLIGENCE));
+        stm.setInt(5, myPlayer.getStat(Stats.LUCK));
+        stm.setInt(6, myPlayer.getStat(Stats.WISDOM));
         stm.executeUpdate();
 
     }
 
-}
+    /**
+     * Searches the database for saved games and displays them to the console. The player is types in the Unique PlayerID
+     * that they would like to load. The LoadGame() loads player information back into the game.
+     */
+    public void loadGame() {
+        Player myPlayer = null;
+        ResultSet rs;
+        ResultSet statRS;
+
+        try {
+            //Create Game Database incase it doesnt exists
+            connection = DriverManager.getConnection("jdbc:sqlite:game.db");
+            createTable();
+            statement = connection.createStatement();
+            printSaves();
+            loadPlayer();
+
+            connection.close();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        Game game = new Game(myPlayer, PlayerType.RETURNING);
+    }
+
+    /**
+     * Queries the database for saved games and displays them to the console in a table format.
+     *
+     * @throws SQLException
+     */
+    private void printSaves() throws SQLException {
+        System.out.println("\nSaved Games: ");
+        String sql = "SELECT * FROM PLAYER";
+        ResultSet rs = statement.executeQuery(sql);
+
+        //Check if a saved game exists and if doesnt prompt for a new game
+        if(!rs.isBeforeFirst()) {
+            System.out.println("No saved games found");
+            System.out.println("Start a new Game? (Yes/No)");
+
+            Scanner choice = new Scanner(System.in);
+            String start = choice.nextLine();
+
+            if(start.equalsIgnoreCase("y"))
+                new ClassMenu();
+            else
+                System.exit(0);
+        }
+
+        //Print saves to console in a table format
+        String leftAlignFormat = "| %-6.8s | %-7.8s | %-7d | %-7d | %-7d |%n";
+        System.out.format("+--------+---------+---------+---------+---------+%n");
+        System.out.format("| Save # | Name    | Level   | Health  | Gold    |%n");
+        System.out.format("+--------+---------+---------+---------+---------+%n");
+
+        int index = 0;
+        while (rs.next()) {
+            String name = rs.getString("name");
+            int max_health = rs.getInt("max_health");
+            int health = rs.getInt("health");
+            int level = rs.getInt("level");
+            int gold = rs.getInt("gold");
+
+            System.out.format(leftAlignFormat, index++, name, level, health, gold);
+            System.out.format("+--------+---------+---------+---------+---------+%n");
+        }
+    }
+
+    /**
+     * Loads the player from the database and populates the mobiles variable.
+     *
+     * @throws SQLException
+     */
+    private void loadPlayer() throws SQLException {
+        ResultSet result;
+        ResultSet statRS;
+        String playerID;
+        boolean loaded = false;
+
+        String sql = "SELECT * FROM PLAYER";
+        result = statement.executeQuery(sql);
+
+        Scanner input = new Scanner(System.in);
+        while (!loaded){
+            //Loads a player save by selecting a player ID that is inputted into the console
+            System.out.println("Select save game to load...");
+            System.out.println("Enter Save Number: ");
+            int saveNumber = input.nextInt();
+
+            for(int i = 0; i < saveNumber; i++){
+                result.next();
+            }
+
+            playerID = result.getString("player_id");
+            sql = "SELECT * FROM PLAYER WHERE PLAYER_ID='" + playerID + "'";
+            result = statement.executeQuery(sql);
+
+            if (!result.isBeforeFirst()) {
+                System.out.println("Error! Unable to load player...");
+                System.out.println("Try again.");
+            } else {
+                String name = result.getString("NAME");
+                int maxHealth = result.getInt("MAX_HEALTH");
+                int health = result.getInt("HEALTH");
+                int level = result.getInt("LEVEL");
+                int gold = result.getInt("GOLD");
+
+                sql = "SELECT * FROM PLAYER_STATS WHERE PLAYER_ID='" + playerID + "'";
+                statRS = statement.executeQuery(sql);
+
+                StatFactory factory = new StatFactory();
+                factory.setDex(statRS.getInt("dexterity"));
+                factory.setDex(statRS.getInt("strength"));
+                factory.setDex(statRS.getInt("intelligence"));
+                factory.setDex(statRS.getInt("luck"));
+                factory.setDex(statRS.getInt("wisdom"));
+                stats = factory.build();
+
+                myPlayer = new Player(playerID, maxHealth, health, name, level, stats, gold);
+
+                loaded = true;
+            } //End of else
+        } // End of while
+    } // End of method
+} // End of Class

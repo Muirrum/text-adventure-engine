@@ -44,7 +44,6 @@ public class Game {
         boolean contPrompt = true;
         if (newPlayer) {
             MessageQueue.add("Welcome, " + player.getName() + ". Have fun!");
-
         } else {
             MessageQueue.add("How'd you get here?");
         }

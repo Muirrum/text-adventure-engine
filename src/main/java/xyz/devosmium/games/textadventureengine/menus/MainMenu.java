@@ -1,6 +1,7 @@
 package xyz.devosmium.games.textadventureengine.menus;
 
 import xyz.devosmium.games.textadventureengine.locations.World;
+import xyz.devosmium.games.textadventureengine.save.SaveProvider;
 import xyz.devosmium.games.textadventureengine.util.MessageQueue;
 
 public class MainMenu extends BaseMenu implements Runnable {
@@ -33,7 +34,8 @@ public class MainMenu extends BaseMenu implements Runnable {
     case "start":
       new ClassMenu();
     case "load":
-      MessageQueue.add("Cannot load. Please check back later.");
+      SaveProvider load = new SaveProvider();
+      load.loadGame();
     case "exit":
       MessageQueue.add("Exiting...");
       return false;

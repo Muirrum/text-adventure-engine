@@ -12,7 +12,6 @@ import java.util.UUID;
 public class Mobile {
 
     // Declare all variables
-    private String playerID;
     private String name;
     private int maxHealth;
     private int health;
@@ -26,7 +25,6 @@ public class Mobile {
      * Represents a Mobile Entity (Mobile)
      */
     public Mobile(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
-        this.playerID = UUID.randomUUID().toString();
         this.maxHealth = maxHealth;
         this.health = health;
 
@@ -37,10 +35,6 @@ public class Mobile {
         this.stats = stats;
 
         this.gold = gold;
-    }
-
-    public String  getPlayerID (){
-        return playerID;
     }
 
     public int getHealth() {
@@ -74,6 +68,11 @@ public class Mobile {
     public int getMaxHealth() {
         return maxHealth;
     }
+
+    private void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+
 
     public int getStat(Stats stat) {
         switch (stat) {
