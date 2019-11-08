@@ -1,13 +1,22 @@
 package xyz.devosmium.games.textadventureengine.mobiles;
 
 import java.util.Map;
+import xyz.devosmium.games.textadventureengine.items.Inventory;
+import xyz.devosmium.games.textadventureengine.locations.Area;
+import xyz.devosmium.games.textadventureengine.locations.Location;
+import xyz.devosmium.games.textadventureengine.locations.LocationFactory;
+import xyz.devosmium.games.textadventureengine.util.CoordinateBuilder;
 
 /**
  * Special class for Players. Contains some special things for leveling
  */
 public class Player extends Mobile {
+
+  public Inventory inventory;
   private Player(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
-    super(maxHealth, health, name, level, stats, gold);
+    super(maxHealth, health, name, level, stats, gold, new LocationFactory().buildLocation(new CoordinateBuilder(0, 0, 0).buildCoordinate(), "Start", "Starting room"));
+
+    inventory = new Inventory();
 
   }
 

@@ -2,6 +2,8 @@ package xyz.devosmium.games.textadventureengine.mobiles;
 
 import java.util.Map;
 
+import xyz.devosmium.games.textadventureengine.locations.Location;
+
 /**
  * Represents a mobile entity - something that can move around on its own. These
  * entities often have health, names, levels, inventories, and stats. They can
@@ -22,10 +24,12 @@ public class Mobile {
 
   private int gold;
 
+  protected Location currentLocation;
+
   /**
    * Represents a Mobile Entity (Mobile)
    */
-  public Mobile(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold) {
+  public Mobile(int maxHealth, int health, String name, int level, Map<String, Integer> stats, int gold, Location location) {
     this.maxHealth = maxHealth;
     this.health = health;
 
@@ -36,6 +40,7 @@ public class Mobile {
     this.stats = stats;
 
     this.gold = gold;
+    this.currentLocation = location;
   }
 
   public int getHealth() {
@@ -82,5 +87,8 @@ public class Mobile {
       return 0;
     }
   }
+
+  public Location getLocation() { return currentLocation; }
+  public void setLocation(Location newLoc) { currentLocation = newLoc; }
 
 }
