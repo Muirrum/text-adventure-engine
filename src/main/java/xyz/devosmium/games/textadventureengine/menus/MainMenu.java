@@ -20,6 +20,7 @@ public class MainMenu extends BaseMenu implements Runnable {
 
     boolean continuing = true;
     do {
+      
       MenuItem selectedItem = displayMenu(menuItems);
       continuing = testOption(selectedItem);
     } while (continuing);

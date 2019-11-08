@@ -13,31 +13,43 @@ public class Game {
   String intro = "You blink your eyes open, and stand up.";
 
   public Game(Player player, PlayerType type) {
+
     this.player = player;
     try {
+
       switch (type) {
       case NEW:
+
         MessageQueue.add(intro);
         gamePrompt(player, true);
         break;
+
       case RETURNING:
+
         MessageQueue.add("How did you get here?");
         gamePrompt(player, false);
         break;
+
       default:
+
         MessageQueue.add("Invalid type.");
         throw new Exception("Invalid player type");
       }
+
     }catch (DeathException de){
+
       System.out.println(de.getMessage());
       new MainMenu();
+
     }catch (Exception e) {
       System.exit(-1);
     }
   }
 
   protected void gamePrompt(Player player, boolean newPlayer) throws DeathException{
+
     boolean contPrompt = true;
+    
     if (newPlayer) {
       MessageQueue.add("Welcome, " + player.getName() + ". Have fun!");
     } else {

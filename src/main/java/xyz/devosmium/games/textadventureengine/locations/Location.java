@@ -30,7 +30,7 @@ public class Location {
 
   /**
    * Sets the name of the location
-   * 
+   *
    * @param shortString The new name of the location
    */
   public void setShort(String shortString) {
@@ -64,6 +64,7 @@ public class Location {
    * @see Location(Coordinate, String, String)
    */
   public Location(Coordinate coordinates, String shortString, String longString, ArrayList<Mobile> mobiles) {
+
     this.coordinates = coordinates;
     this.shortString = shortString;
     this.longString = longString;
@@ -76,6 +77,7 @@ public class Location {
    * @param longString Long description
    */
   public Location(Coordinate coordinates, String shortString, String longString) {
+
     this.coordinates = coordinates;
     this.shortString = shortString;
     this.longString = longString;
@@ -83,10 +85,11 @@ public class Location {
 
   /**
    * Creates a default room in the center of the map. Not recommended
-   * 
+   *
    * @deprecated
    */
   public Location() {
+    
     this.coordinates = new Coordinate(0, 0, 0);
     this.shortString = "Development Room";
     this.longString = "A room for developers";

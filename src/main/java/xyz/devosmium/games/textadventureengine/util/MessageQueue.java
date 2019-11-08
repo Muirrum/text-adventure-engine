@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
  * Handles output and input to console
  */
 public class MessageQueue {
+  
   private static Logger logger = LoggerFactory.getLogger(MessageQueue.class);
 
   /**
@@ -21,7 +22,7 @@ public class MessageQueue {
 
   /**
    * Gets input from player
-   * 
+   *
    * @return User input
    */
   public static String take() {
